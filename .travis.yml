@@ -15,6 +15,9 @@ after_success:
   - docker build -t lostark78/multi-nginx ./nginx
   - docker build -t lostark78/multi-worker ./worker
 #login to docker-cli
-
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 ##depoy to docker-hub
-
+  - docker push lostark78/multi-client
+  - docker push lostark78/multi-server
+  - docker push lostark78/multi-nginx
+  - docker push lostark78/multi-worker

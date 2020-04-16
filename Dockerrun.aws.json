@@ -1,0 +1,32 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "client",
+      "image": "lostark78/multi-client",
+      "hostname": "client",
+      "essential": false
+    }, 
+    {
+      "name": "server",
+      "image": "lostark78/multi-server",
+      "hostname": "api",
+      "essential": false
+    },
+    {
+      "name": "worker",
+      "image": "lostark78/multi-worker",
+      "hostname": "worker",
+      "essential": false
+    },
+    {
+      "name": "nginx",
+      "image": "lostark78/multi-nginx",
+      "essential": true,
+      "portMappings": [
+        { "hostPort": 80, "containerPort": 80 }
+      ],
+      "links": ["client", "server" ]
+    }
+  ]
+}

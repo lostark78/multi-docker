@@ -20,4 +20,16 @@ after_success:
   - docker push lostark78/multi-client
   - docker push lostark78/multi-server
   - docker push lostark78/multi-nginx
-  - docker push lostark78/multi-worker
+  - docker push lostark80/multi-worker
+
+deply:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "multi-docker"
+  env: "MultiDocker-env"
+  bucket_name: "elasticbeanstalk-us-east-2-123531314423"
+  bucket_path: "docker-multi"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY

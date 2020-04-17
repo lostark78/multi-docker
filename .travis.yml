@@ -20,7 +20,7 @@ after_success:
   - docker push lostark78/multi-client
   - docker push lostark78/multi-server
   - docker push lostark78/multi-nginx
-  - docker push lostark80/multi-worker
+  - docker push lostark78/multi-worker
 
 deply:
   provider: elasticbeanstalk
